@@ -1,4 +1,5 @@
 import './App.css';
+import KeysRow from './calculatorFunctions';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <div className='App-calculator-inputHistory'>333</div>
             </th>
           </tr>
+          <KeysRow />
         </table>
       </section>
     </div>
