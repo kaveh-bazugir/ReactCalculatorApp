@@ -9,11 +9,19 @@ function App() {
       <section className='App-calculator'>
         <table>
           {/* for displaying input number */}
-          <tr className='App-calculator-inputBox'></tr>
+          <tr>
+            <th><div className='App-calculator-input'>123</div></th>
+          </tr>
           {/* for displaying result */}
-          <tr className='App-calculator-outputBox'></tr>
+          <tr>
+            <th><div className='App-calculator-result'></div></th>
+          </tr>
           {/* for displaying calculation history */}
-          <tr calssName='App-calculator-processBox'></tr>
+          <tr>
+            <th>
+              <div className='App-calculator-inputHistory'>333</div>
+            </th>
+          </tr>
         </table>
       </section>
     </div>

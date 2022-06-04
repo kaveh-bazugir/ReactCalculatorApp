@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  background-color: #282c34;
 }
 
 .App-logo {
@@ -15,7 +17,6 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,9 +40,39 @@
 
 .App-calculator {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.App-calculator table {
+  width: 100%;
+}
+
+.App-calculator table, th, td {
+  border-collapse: collapse;
+}
+
+.App-calculator th {
+  border: #61dafb solid 1px;
+}
+
+.App-calculator-input {
+  color: #61dafb;
+  min-height: 5vmin;
+  font-size: 3vmin;
+}
+
+.App-calculator-result {
+  color: chartreuse;
+  min-height: 5vmin;
+  font-size: 3vmin;
+}
+
+.App-calculator-inputHistory {
+  color: #61dafb;
+  min-height: 5vmin;
+  font-size: 3vmin;
+  text-align: left;
 }
