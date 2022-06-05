@@ -1,4 +1,4 @@
-import { CalDisplay } from "./calculatorFunctions";
+import CalDisplay from "./CalDisplay";
 
 function MyNewDisplay() {
     return (
