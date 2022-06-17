@@ -81,6 +81,30 @@ const Calculator = () => {
             case ".":
                 setMyInput(myInput + btnInput);
                 break;
+            case "+":
+                OperationFunction();
+                setLastOperator("+");
+                break;
+            case "-":
+                OperationFunction();
+                setLastOperator("-");
+                break;
+            case "*":
+                OperationFunction();
+                setLastOperator("*");
+                break;
+            case "/":
+                OperationFunction();
+                setLastOperator("/");
+                break;
+            case "^":
+                OperationFunction();
+                setLastOperator("^");
+                break;
+            case "=":
+                OperationFunction();
+                setLastOperator("");
+                break;
             default:
                 setMyInput(myInput + btnInput);
                 setMyInput(parseFloat(myInput).toString());
@@ -89,7 +113,7 @@ const Calculator = () => {
 
     const calButtons = [
         [
-            {label:"1", onClick:() => CalInput("1")},
+            {label:"1", onClick:() => setMyInput(myInput + "1")},
             {label:"2", onClick:() => CalInput("2")},
             {label:"3", onClick:() => CalInput("3")},
             {label:"+", onClick:() => CalInput("+")}
