@@ -139,7 +139,7 @@ const Calculator = () => {
 
     return(
         <>
-        <input type="text" value={myInput} onChange={KeyboardInput} id="calculatorInput"/>
+        <input type="text" value={myInput} onChange={KeyboardInput} />
         <div>{myResult}</div>
         <div>
             {calButtons.map((buttonRow) => <div>{buttonRow.map(
