@@ -84,7 +84,6 @@ const Calculator = () => {
             default:
                 setMyInput(myInput + btnInput);
                 setMyInput(parseFloat(myInput).toString());
-
         }
     }
 
