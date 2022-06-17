@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         Calculator
       </header>
-      <section>
+      <section className='myCalculator'>
         <Calculator />
       </section>
     </div>

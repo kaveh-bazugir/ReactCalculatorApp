@@ -1,0 +1,21 @@
+.calculatorInput {
+    width: 50vh;
+    margin: 2vh;
+    font-size: 5vh;
+}
+
+.calculatorResult {
+    width: 50vh;
+    margin: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    font-size: 8vh;
+    color: darkgreen;
+}
+
+.calculatorButton {
+    width: 10vh;
+    font-size: 5vh;
+    color: blue;
+}

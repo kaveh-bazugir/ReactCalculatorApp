@@ -1,10 +1,8 @@
 const Btn = (props) => {
-    const {label, onClick} = props;
-    const btnStyle = {
-        margin:2
-    }
+    const {label, onClick, className} = props;
+
     return(
-        <button type="button" onClick={onClick} style={btnStyle}>{label}</button>
+        <button type="button" onClick={onClick} className={className}>{label}</button>
     );
 }
 

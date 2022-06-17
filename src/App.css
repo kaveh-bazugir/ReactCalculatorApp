@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.myCalculator {
+  background-color: #61dafb;
+  min-height: 80vh;
+  align-items: center;
+}

@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import './Calculator.css'
 import Btn from "./Button";
 
 const Calculator = () => {
@@ -154,17 +155,20 @@ const Calculator = () => {
             {label:"del", onClick:() => CalInput("del")}
         ]
     ];
+    
+    calButtons.map((buttonRow) => {buttonRow.map(
+        (calculatorButton) => calculatorButton.className = "calculatorbutton"
+    )});
 
     return(
         <>
-        <input type="text" value={myInput} onChange={KeyboardInput} />
-        <div>{myResult}</div>
+        <input type="text" value={myInput} onChange={KeyboardInput} className="calculatorInput"/>
+        <div className="calculatorResult">{myResult}</div>
         <div>
             {calButtons.map((buttonRow) => <div>{buttonRow.map(
-                (myButton) => <Btn label={myButton.label} onClick={myButton.onClick}/>
+                (myButton) => <Btn label={myButton.label} onClick={myButton.onClick} className={myButton.className}/>
             )}</div>)}
         </div>
-        <div>k</div>
         </>
     );
 }
