@@ -76,12 +76,32 @@ const Calculator = () => {
         }
     }
 
+    const CalInput = (btnInput) =>{
+        switch (btnInput) {
+            case ".":
+                setMyInput(myInput + btnInput);
+                break;
+            default:
+                setMyInput(myInput + btnInput);
+                setMyInput(parseFloat(myInput).toString());
+
+        }
+    }
+
+    const calButtons = [
+        [
+            {label:"1", func:{() => CalInput("1")}},
+            {label:"2", func:{() => CalInput("2")}},
+            {label:"3", func:{() => CalInput("3")}}
+        ]
+    ]
+
     return(
         <>
         <input type="text" value={myInput} onChange={KeyboardInput} />
         <div>{myResult}</div>
         <div>
-            <Btn label="1" onClick={() => {setMyInput(myInput + "1")}}/>
+            <Btn label="1" onClick={() => CalInput("1")}/>
             <Btn label="+" onClick={() => {setMyInput(myInput + "+")}}/>
         </div>
         </>
