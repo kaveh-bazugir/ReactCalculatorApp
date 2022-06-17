@@ -90,19 +90,39 @@ const Calculator = () => {
 
     const calButtons = [
         [
-            {label:"1", func:{() => CalInput("1")}},
-            {label:"2", func:{() => CalInput("2")}},
-            {label:"3", func:{() => CalInput("3")}}
+            {label:"1", onClick:() => CalInput("1")},
+            {label:"2", onClick:() => CalInput("2")},
+            {label:"3", onClick:() => CalInput("3")},
+            {label:"+", onClick:() => CalInput("+")}
+        ],
+        [
+            {label:"4", onClick:() => CalInput("4")},
+            {label:"5", onClick:() => CalInput("5")},
+            {label:"6", onClick:() => CalInput("6")},
+            {label:"-", onClick:() => CalInput("-")}
+        ],
+        [
+            {label:"7", onClick:() => CalInput("7")},
+            {label:"8", onClick:() => CalInput("8")},
+            {label:"9", onClick:() => CalInput("9")},
+            {label:"*", onClick:() => CalInput("*")}
+        ],
+        [
+            {label:"0", onClick:() => CalInput("0")},
+            {label:".", onClick:() => CalInput(".")},
+            {label:"=", onClick:() => CalInput("=")},
+            {label:"/", onClick:() => CalInput("/")}
         ]
-    ]
+    ];
 
     return(
         <>
         <input type="text" value={myInput} onChange={KeyboardInput} />
         <div>{myResult}</div>
         <div>
-            <Btn label="1" onClick={() => CalInput("1")}/>
-            <Btn label="+" onClick={() => {setMyInput(myInput + "+")}}/>
+            {calButtons.map((buttonRow) => <div>{buttonRow.map(
+                (myButton) => <Btn label={myButton.label} onClick={myButton.onClick}/>
+            )}</div>)}
         </div>
         </>
     );
