@@ -164,6 +164,7 @@ const Calculator = () => {
                 (myButton) => <Btn label={myButton.label} onClick={myButton.onClick}/>
             )}</div>)}
         </div>
+        <div>k</div>
         </>
     );
 }
