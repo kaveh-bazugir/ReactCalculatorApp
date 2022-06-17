@@ -106,14 +106,13 @@ const Calculator = () => {
                 setLastOperator("");
                 break;
             default:
-                setMyInput(myInput + btnInput);
-                setMyInput(parseFloat(myInput).toString());
+                setMyInput(parseFloat(myInput + btnInput).toString());
         }
     }
 
     const calButtons = [
         [
-            {label:"1", onClick:() => setMyInput(myInput + "1")},
+            {label:"1", onClick:() => CalInput("1")},
             {label:"2", onClick:() => CalInput("2")},
             {label:"3", onClick:() => CalInput("3")},
             {label:"+", onClick:() => CalInput("+")}
@@ -140,7 +139,7 @@ const Calculator = () => {
 
     return(
         <>
-        <input type="text" value={myInput} onChange={KeyboardInput} />
+        <input type="text" value={myInput} onChange={KeyboardInput} id="calculatorInput"/>
         <div>{myResult}</div>
         <div>
             {calButtons.map((buttonRow) => <div>{buttonRow.map(
