@@ -156,9 +156,9 @@ const Calculator = () => {
         ]
     ];
     
-    calButtons.map((buttonRow) => {buttonRow.map(
+    /*calButtons.map((buttonRow) => {buttonRow.map(
         (calculatorButton) => calculatorButton.className = "calculatorbutton"
-    )});
+    )});*/
 
     return(
         <>
@@ -166,7 +166,7 @@ const Calculator = () => {
         <div className="calculatorResult">{myResult}</div>
         <div>
             {calButtons.map((buttonRow) => <div>{buttonRow.map(
-                (myButton) => <Btn label={myButton.label} onClick={myButton.onClick} className={myButton.className}/>
+                (myButton) => <Btn label={myButton.label} onClick={myButton.onClick} className="calculatorButton"/>
             )}</div>)}
         </div>
         </>
