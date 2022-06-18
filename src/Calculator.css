@@ -19,3 +19,15 @@
     font-size: 5vh;
     color: blue;
 }
+
+.calculationHistory {
+    width: 50vh;
+    min-height: 10vh;
+    margin: 2vh;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: scroll;
+    text-align: left;
+    font-size: 5vh;
+    color: darkolivegreen;
+}

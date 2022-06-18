@@ -187,7 +187,7 @@ const Calculator = () => {
         <>
         <input type="text" value={myInput} onChange={KeyboardInput} className="calculatorInput"/>
         <div className="calculatorResult">{myResult}</div>
-        <div>{calHistArr.map((item) => <>{item}</>)}</div>
+        <div className="calculationHistory">{calHistArr.map((item) => <>{item}</>)}</div>
         <div>
             {calButtons.map((buttonRow) => <div>{buttonRow.map(
                 (myButton) => <Btn label={myButton.label} onClick={myButton.onClick} className="calculatorButton"/>
