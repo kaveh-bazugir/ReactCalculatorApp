@@ -20,27 +20,27 @@ const Calculator = () => {
             case "+":
                 OperationFunction();
                 setLastOperator("+");
-                setCalHistArr(oldArr => [...oldArr, lastOperator]);
+                setCalHistArr(oldArr => [...oldArr, "+"]);
                 break;
             case "-":
                 OperationFunction();
                 setLastOperator("-");
-                setCalHistArr(oldArr => [...oldArr, lastOperator]);
+                setCalHistArr(oldArr => [...oldArr, "-"]);
                 break;
             case "*":
                 OperationFunction();
                 setLastOperator("*");
-                setCalHistArr(oldArr => [...oldArr, lastOperator]);
+                setCalHistArr(oldArr => [...oldArr, "*"]);
                 break;
             case "/":
                 OperationFunction();
                 setLastOperator("/");
-                setCalHistArr(oldArr => [...oldArr, lastOperator]);
+                setCalHistArr(oldArr => [...oldArr, "/"]);
                 break;
             case "^":
                 OperationFunction();
                 setLastOperator("^");
-                setCalHistArr(oldArr => [...oldArr, lastOperator]);
+                setCalHistArr(oldArr => [...oldArr, "^"]);
                 break;
             case "=":
                 OperationFunction();
@@ -101,27 +101,27 @@ const Calculator = () => {
             case "+":
                 OperationFunction();
                 setLastOperator("+");
-                setCalHistArr(oldArr => [...oldArr, lastOperator]);
+                setCalHistArr(oldArr => [...oldArr, "+"]);
                 break;
             case "-":
                 OperationFunction();
                 setLastOperator("-");
-                setCalHistArr(oldArr => [...oldArr, lastOperator]);
+                setCalHistArr(oldArr => [...oldArr, "-"]);
                 break;
             case "*":
                 OperationFunction();
                 setLastOperator("*");
-                setCalHistArr(oldArr => [...oldArr, lastOperator]);
+                setCalHistArr(oldArr => [...oldArr, "*"]);
                 break;
             case "/":
                 OperationFunction();
                 setLastOperator("/");
-                setCalHistArr(oldArr => [...oldArr, lastOperator]);
+                setCalHistArr(oldArr => [...oldArr, "/"]);
                 break;
             case "^":
                 OperationFunction();
                 setLastOperator("^");
-                setCalHistArr(oldArr => [...oldArr, lastOperator]);
+                setCalHistArr(oldArr => [...oldArr, "^"]);
                 break;
             case "=":
                 OperationFunction();
