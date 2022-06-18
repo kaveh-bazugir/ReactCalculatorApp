@@ -7,6 +7,7 @@ const Calculator = () => {
     const [myResult, setMyResult] = useState(0);
     const [lastOperator, setLastOperator] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const [calHistArr, setCalHistArr] = useState([]);
 
     const KeyboardInput = event => {
         const keyboardInput = event.target.value;
@@ -19,26 +20,32 @@ const Calculator = () => {
             case "+":
                 OperationFunction();
                 setLastOperator("+");
+                setCalHistArr(oldArr => [...oldArr, lastOperator]);
                 break;
             case "-":
                 OperationFunction();
                 setLastOperator("-");
+                setCalHistArr(oldArr => [...oldArr, lastOperator]);
                 break;
             case "*":
                 OperationFunction();
                 setLastOperator("*");
+                setCalHistArr(oldArr => [...oldArr, lastOperator]);
                 break;
             case "/":
                 OperationFunction();
                 setLastOperator("/");
+                setCalHistArr(oldArr => [...oldArr, lastOperator]);
                 break;
             case "^":
                 OperationFunction();
                 setLastOperator("^");
+                setCalHistArr(oldArr => [...oldArr, lastOperator]);
                 break;
             case "=":
                 OperationFunction();
                 setLastOperator("");
+                setCalHistArr([]);
                 break;
             default:
                 setMyInput(parseFloat(keyboardInput).toString());
@@ -49,30 +56,39 @@ const Calculator = () => {
         switch(lastOperator){
             case "+":
                 setMyResult(myResult + parseFloat(myInput));
+                setCalHistArr(oldArr => [...oldArr, myInput]);
                 setMyInput("0");
                 break;
             case "-":
                 setMyResult(myResult - parseFloat(myInput));
+                setCalHistArr(oldArr => [...oldArr, myInput]);
                 setMyInput("0");
                 break;
             case "*":
                 setMyResult(myResult * parseFloat(myInput));
+                setCalHistArr(oldArr => [...oldArr, myInput]);
                 setMyInput("0");
                 break;
             case "/":
                 if(myInput==="0"){
                     setErrorMessage("Error: Division by 0.");
+                    setMyResult(myResult)
+                    setCalHistArr(oldArr => [...oldArr, "1"]);
+                    setMyInput("0");
                 } else {
                     setMyResult(myResult / parseFloat(myInput));
+                    setCalHistArr(oldArr => [...oldArr, myInput]);
                     setMyInput("0");
                 }
                 break;
             case "^":
                 setMyResult(myResult ** parseFloat(myInput));
+                setCalHistArr(oldArr => [...oldArr, myInput]);
                 setMyInput("0");
                 break;
             default:
                 setMyResult(parseFloat(myInput));
+                setCalHistArr(oldArr => [...oldArr, myInput]);
                 setMyInput("0");
         }
     }
@@ -85,26 +101,32 @@ const Calculator = () => {
             case "+":
                 OperationFunction();
                 setLastOperator("+");
+                setCalHistArr(oldArr => [...oldArr, lastOperator]);
                 break;
             case "-":
                 OperationFunction();
                 setLastOperator("-");
+                setCalHistArr(oldArr => [...oldArr, lastOperator]);
                 break;
             case "*":
                 OperationFunction();
                 setLastOperator("*");
+                setCalHistArr(oldArr => [...oldArr, lastOperator]);
                 break;
             case "/":
                 OperationFunction();
                 setLastOperator("/");
+                setCalHistArr(oldArr => [...oldArr, lastOperator]);
                 break;
             case "^":
                 OperationFunction();
                 setLastOperator("^");
+                setCalHistArr(oldArr => [...oldArr, lastOperator]);
                 break;
             case "=":
                 OperationFunction();
                 setLastOperator("");
+                setCalHistArr([]);
                 break;
             case "C":
                 setMyInput("0");
@@ -112,6 +134,7 @@ const Calculator = () => {
             case "CE":
                 setMyInput("0");
                 setMyResult(0);
+                setCalHistArr([])
                 break;
             case "del":
                 if(myInput.length > 1) {
@@ -164,6 +187,7 @@ const Calculator = () => {
         <>
         <input type="text" value={myInput} onChange={KeyboardInput} className="calculatorInput"/>
         <div className="calculatorResult">{myResult}</div>
+        <div>{calHistArr.map((item) => <>{item}</>)}</div>
         <div>
             {calButtons.map((buttonRow) => <div>{buttonRow.map(
                 (myButton) => <Btn label={myButton.label} onClick={myButton.onClick} className="calculatorButton"/>
