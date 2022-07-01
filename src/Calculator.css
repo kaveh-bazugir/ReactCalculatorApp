@@ -26,7 +26,7 @@
     margin: 2vh;
     margin-left: auto;
     margin-right: auto;
-    overflow-x: scroll;
+    overflow-x: auto;
     text-align: left;
     font-size: 5vh;
     color: darkolivegreen;
