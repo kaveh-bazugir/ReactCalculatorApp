@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import './Calculator.css'
 import Btn from "./Button";
+import data from './data.json'
 
 const Calculator = () => {
     const [myInput, setMyInput] = useState("0");
@@ -8,47 +9,25 @@ const Calculator = () => {
     const [lastOperator, setLastOperator] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
     const [calHistArr, setCalHistArr] = useState([]);
+    const [buttonData, setButtonData] = useState(data);
+
+
+    const calculate = (operator) => {
+        OperationFunction();
+        setLastOperator(operator === "=" ? "" : operator);
+        setCalHistArr(oldArr => operator === "=" ? [] : [...oldArr, operator]);
+    }
 
     const KeyboardInput = event => {
         const keyboardInput = event.target.value;
         const lastChar = keyboardInput[keyboardInput.length - 1];
-
-        switch(lastChar) {
-            case ".":
-                setMyInput(myInput + lastChar);
-                break;
-            case "+":
-                OperationFunction();
-                setLastOperator("+");
-                setCalHistArr(oldArr => [...oldArr, "+"]);
-                break;
-            case "-":
-                OperationFunction();
-                setLastOperator("-");
-                setCalHistArr(oldArr => [...oldArr, "-"]);
-                break;
-            case "*":
-                OperationFunction();
-                setLastOperator("*");
-                setCalHistArr(oldArr => [...oldArr, "*"]);
-                break;
-            case "/":
-                OperationFunction();
-                setLastOperator("/");
-                setCalHistArr(oldArr => [...oldArr, "/"]);
-                break;
-            case "^":
-                OperationFunction();
-                setLastOperator("^");
-                setCalHistArr(oldArr => [...oldArr, "^"]);
-                break;
-            case "=":
-                OperationFunction();
-                setLastOperator("");
-                setCalHistArr([]);
-                break;
-            default:
-                setMyInput(parseFloat(keyboardInput).toString());
+        var numberRegx = /^\d+$/;
+        if(numberRegx.test(lastChar)){
+            setMyInput(parseFloat(keyboardInput).toString());
+        } else if(lastChar === '.'){
+            setMyInput(myInput + lastChar);
+        } else {
+            calculate(lastChar)
         }
     }
 
@@ -148,49 +127,14 @@ const Calculator = () => {
         }
     }
 
-    const calButtons = [
-        [
-            {label:"1", onClick:() => CalInput("1")},
-            {label:"2", onClick:() => CalInput("2")},
-            {label:"3", onClick:() => CalInput("3")},
-            {label:"+", onClick:() => CalInput("+")},
-            {label:"^", onClick:() => CalInput("^")}
-        ],
-        [
-            {label:"4", onClick:() => CalInput("4")},
-            {label:"5", onClick:() => CalInput("5")},
-            {label:"6", onClick:() => CalInput("6")},
-            {label:"-", onClick:() => CalInput("-")},
-            {label:"C", onClick:() => CalInput("C")}
-        ],
-        [
-            {label:"7", onClick:() => CalInput("7")},
-            {label:"8", onClick:() => CalInput("8")},
-            {label:"9", onClick:() => CalInput("9")},
-            {label:"*", onClick:() => CalInput("*")},
-            {label:"CE", onClick:() => CalInput("CE")}
-        ],
-        [
-            {label:"0", onClick:() => CalInput("0")},
-            {label:".", onClick:() => CalInput(".")},
-            {label:"=", onClick:() => CalInput("=")},
-            {label:"/", onClick:() => CalInput("/")},
-            {label:"del", onClick:() => CalInput("del")}
-        ]
-    ];
-    
-    /*calButtons.map((buttonRow) => {buttonRow.map(
-        (calculatorButton) => calculatorButton.className = "calculatorbutton"
-    )});*/
-
     return(
         <>
         <input type="text" value={myInput} onChange={KeyboardInput} className="calculatorInput"/>
         <div className="calculatorResult">{myResult}</div>
         <div className="calculationHistory">{calHistArr.map((item) => <>{item}</>)}</div>
         <div>
-            {calButtons.map((buttonRow) => <div>{buttonRow.map(
-                (myButton) => <Btn label={myButton.label} onClick={myButton.onClick} className="calculatorButton"/>
+            {buttonData.map((buttonRow, index) => <div key={index}>{buttonRow.map(
+                (myButton, btnIndex) => <Btn key={btnIndex} label={myButton.label} onClick={() => CalInput(myButton.label)} className="calculatorButton"/>
             )}</div>)}
         </div>
         </>
